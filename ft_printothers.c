@@ -6,7 +6,7 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:04:34 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/16 23:32:52 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/17 00:10:08 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,8 @@
 	
 // }
 
-void	ft_print_x(int n)
+void	ft_print_x(unsigned int n)
 {
-	n =(unsigned int)n;
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', 1);
-		ft_putchar_fd('2', 1);
-		n = 147483648;
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', 1);
-		n = n * -1;
-	}
 	if (n >= 16)
 	{
 		ft_print_x(n / 16);
@@ -46,13 +34,30 @@ void	ft_print_x(int n)
 	}
 }
 
-// ft_print_X()
-// {}
+void	ft_print_super_x(unsigned int n)
+{
+	if (n >= 16)
+	{
+		ft_print_X(n / 16);
+		ft_print_X(n % 16);
+	}
+	else
+	{
+		if (n < 10)
+			n = n + 48;
+		else if (n >= 10)
+			n = n + 55;
+		ft_putchar_fd(n, 1);
+	}
+}
 
 int	main(void)
 {
-	ft_print_x(-26);
+	ft_print_X(-2147483647);
 	printf("\n");
-	printf("%x\n", -26);
+	printf("%X\n", -2147483647);
+	ft_print_X(-1234567);
+	printf("\n");
+	printf("%X\n", -1234567);
 	return (0);
 }

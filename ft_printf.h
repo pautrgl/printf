@@ -6,7 +6,7 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:12:58 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/16 19:45:54 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/17 00:10:21 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int	ft_printf(char const *type, ...);
+int		ft_printf(char const *type, ...);
+void	ft_print_x(unsigned int n);
+void	ft_print_super_x(unsigned int n);
 
 #endif
