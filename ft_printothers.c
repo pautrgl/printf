@@ -6,16 +6,20 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:04:34 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/17 00:10:08 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:00:05 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// ft_print_u()
-// {
-	
-// }
+void	ft_print_p(void *p)
+{
+	unsigned long	pointer;
+
+	pointer = (unsigned long)p;
+	ft_putstr_fd("0x", 1);
+	ft_print_x(pointer);
+}
 
 void	ft_print_x(unsigned int n)
 {
@@ -38,8 +42,8 @@ void	ft_print_super_x(unsigned int n)
 {
 	if (n >= 16)
 	{
-		ft_print_X(n / 16);
-		ft_print_X(n % 16);
+		ft_print_super_x(n / 16);
+		ft_print_super_x(n % 16);
 	}
 	else
 	{
@@ -51,13 +55,17 @@ void	ft_print_super_x(unsigned int n)
 	}
 }
 
-int	main(void)
+/*int	main(void)
 {
-	ft_print_X(-2147483647);
+	void *p = NULL;
+	ft_print_p(p);
 	printf("\n");
-	printf("%X\n", -2147483647);
-	ft_print_X(-1234567);
-	printf("\n");
-	printf("%X\n", -1234567);
+	printf("%p\n", p);
+	// ft_print_X(-2147483647);
+	// printf("\n");
+	// printf("%X\n", -2147483647);
+	// ft_print_X(-1234567);
+	// printf("\n");
+	// printf("%X\n", -1234567);
 	return (0);
-}
+}*/
