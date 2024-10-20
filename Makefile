@@ -6,40 +6,33 @@
 #    By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 19:10:34 by ptrapero          #+#    #+#              #
-#    Updated: 2024/10/17 22:03:33 by ptrapero         ###   ########.fr        #
+#    Updated: 2024/10/20 21:12:20 by ptrapero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf.a
+NAME = libftprintf.a
 
 CC = cc
 CFLAGS = -Werror -Wall -Wextra
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printothers.c libft/ft_strlen.c libft/ft_putchar_fd.c \
+	libft/ft_putstr_fd.c libft/ft_putnbr_fd.c
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = ft_printf.h
-
-LIBFT_ROUTE = libft
-LIBFT = $(LIBFT_ROUTE)/libft.a
+INCLUDE = ft_printf.h libft/libft.h
 
 RM = rm -f
 
-all: $(LIBFT) $(NAME)
-
-$(LIBFT):
-	make -C $(LIBFT_ROUTE)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-	make -C $(LIBFT_ROUTE) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C $(LIBFT_ROUTE) fclean
 
 re: fclean all

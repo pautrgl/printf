@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 18:12:58 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/20 20:49:54 by ptrapero         ###   ########.fr       */
+/*   Created: 2024/09/19 19:23:04 by ptrapero          #+#    #+#             */
+/*   Updated: 2024/10/20 20:42:18 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-# include <stdarg.h>
-# include "libft/libft.h"
+# include <stdio.h>
+# include <fcntl.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-int		ft_printf(char const *data, ...);
-void	ft_print_p(void *p, int j);
-void	ft_print_x(unsigned int n, int j);
-void	ft_print_super_x(unsigned int n, int j);
+size_t	ft_strlen(const char *s);
+void	ft_putchar_fd(char c, int fd, int j);
+void	ft_putstr_fd(char *s, int fd, int j);
+void	ft_putnbr_fd(int n, int fd, int j);
 
 #endif

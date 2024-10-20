@@ -6,27 +6,27 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:04:34 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/17 21:00:05 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/20 20:48:36 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_p(void *p)
+void	ft_print_p(void *p, int j)
 {
 	unsigned long	pointer;
 
 	pointer = (unsigned long)p;
-	ft_putstr_fd("0x", 1);
-	ft_print_x(pointer);
+	ft_putstr_fd("0x", 1, j);
+	ft_print_x(pointer, j);
 }
 
-void	ft_print_x(unsigned int n)
+void	ft_print_x(unsigned int n, int j)
 {
 	if (n >= 16)
 	{
-		ft_print_x(n / 16);
-		ft_print_x(n % 16);
+		ft_print_x(n / 16, j);
+		ft_print_x(n % 16, j);
 	}
 	else
 	{
@@ -34,16 +34,16 @@ void	ft_print_x(unsigned int n)
 			n = n + 48;
 		else if (n >= 10)
 			n = n + 87;
-		ft_putchar_fd(n, 1);
+		ft_putchar_fd(n, 1, j);
 	}
 }
 
-void	ft_print_super_x(unsigned int n)
+void	ft_print_super_x(unsigned int n, int j)
 {
 	if (n >= 16)
 	{
-		ft_print_super_x(n / 16);
-		ft_print_super_x(n % 16);
+		ft_print_super_x(n / 16, j);
+		ft_print_super_x(n % 16, j);
 	}
 	else
 	{
@@ -51,7 +51,7 @@ void	ft_print_super_x(unsigned int n)
 			n = n + 48;
 		else if (n >= 10)
 			n = n + 55;
-		ft_putchar_fd(n, 1);
+		ft_putchar_fd(n, 1, j);
 	}
 }
 

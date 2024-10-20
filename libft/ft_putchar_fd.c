@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 18:12:58 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/20 20:49:54 by ptrapero         ###   ########.fr       */
+/*   Created: 2024/09/28 20:15:20 by ptrapero          #+#    #+#             */
+/*   Updated: 2024/10/20 20:38:42 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft/libft.h"
+void	ft_putchar_fd(char c, int fd, int j)
+{
+	write(fd, &c, 1);
+	j++;
+}
 
-int		ft_printf(char const *data, ...);
-void	ft_print_p(void *p, int j);
-void	ft_print_x(unsigned int n, int j);
-void	ft_print_super_x(unsigned int n, int j);
-
-#endif
+/*int	main(void)
+{
+	char	a = 'a';
+	ft_putchar_fd(a,1);
+	return (0);
+}*/

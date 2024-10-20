@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 18:12:58 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/20 20:49:54 by ptrapero         ###   ########.fr       */
+/*   Created: 2024/09/28 22:12:10 by ptrapero          #+#    #+#             */
+/*   Updated: 2024/10/20 20:51:04 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft/libft.h"
+void	ft_putstr_fd(char *s, int fd, int j)
+{
+	write(fd, s, ft_strlen(s));
+	j += ft_strlen(s);
+}
 
-int		ft_printf(char const *data, ...);
-void	ft_print_p(void *p, int j);
-void	ft_print_x(unsigned int n, int j);
-void	ft_print_super_x(unsigned int n, int j);
-
-#endif
+/*int	main(void)
+{
+	char	*a = "lola";
+	ft_putstr_fd(a,1);
+	return (0);
+}*/
