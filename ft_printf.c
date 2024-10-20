@@ -6,30 +6,31 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:49:43 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/20 20:57:06 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/21 01:36:06 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_format(int i, va_list args, int j)
+int	ft_format(int i, va_list args, int j)
 {
 	if (i == 'c')
-		ft_putchar_fd(va_arg(args, int), 1, j);
+		j = ft_putchar_fd(va_arg(args, int), 1, j);
 	else if (i == 's')
-		ft_putstr_fd(va_arg(args, char *), 1, j);
+		j = ft_putstr_fd(va_arg(args, char *), 1, j);
 	else if (i == 'p')
-		ft_print_p(va_arg(args, void *), j);
+		j = ft_print_p(va_arg(args, void *), j);
 	else if (i == 'i' || i == 'd')
-		ft_putnbr_fd(va_arg(args, int), 1, j);
+		j = ft_putnbr_fd(va_arg(args, int), 1, j);
 	else if (i == 'u')
-		ft_putnbr_fd(va_arg(args, unsigned int), 1, j);
+		j = ft_print_u(va_arg(args, unsigned int), j);
 	else if (i == 'x')
-		ft_print_x(va_arg(args, unsigned int), j);
+		j = ft_print_x(va_arg(args, unsigned int), j);
 	else if (i == 'X')
-		ft_print_super_x(va_arg(args, unsigned int), j);
+		j = ft_print_super_x(va_arg(args, unsigned int), j);
 	else if (i == '%')
-		ft_putchar_fd('%', 1, j);
+		j = ft_putchar_fd('%', 1, j);
+	return (j);
 }
 
 int	ft_printf(char const *data, ...)
@@ -46,10 +47,10 @@ int	ft_printf(char const *data, ...)
 		if (data[i] == '%')
 		{
 			i++;
-			ft_format(data[i], args, j);
+			j = ft_format(data[i], args, j);
 		}
 		else
-			ft_putchar_fd(data[i], 1, j);
+			j = ft_putchar_fd(data[i], 1, j);
 		i++;
 	}
 	va_end(args);
@@ -58,23 +59,44 @@ int	ft_printf(char const *data, ...)
 
 /*int	main(void)
 {
+	int	a = write(1, "cccc", 4);
+	printf("%d", a);
+	return (0);
+}*/
+
+/*int	main(void)
+{
 //	va_list	args_copy;
 //	va_copy(args_copy, args);
-	char	cha = 'h';
-	char	*str = "lola";
+	// char	cha = 'h';
+	// char	*str = "lola";
 	void	*pointer = "ays";
-	int		d = 11;
-	int		i = 11;
-	int		u = 11;
-	int		x = 11;
-	int		super_x = 15;
-	ft_printf("hola busco a %s\nprueba de char %c\n", str, cha);
-	ft_printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
-	ft_printf("de hexadecimales %x %X\nde porcentaje %%", x, super_x);
-	printf("\n");
-	printf("hola busco a %s\nprueba de char %c\n", str, cha);
-	printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
-	printf("de hexadecimales %x %X\nde porcentaje %%", x, super_x);
-	printf("\n");
+	// int		d = 10;
+	// int		i = 11;
+	// int		u = 15;
+	// int		x = 1145678;
+	// int		super_x = 15;
+	// int	a = ft_printf("hola busco a %s\nprueba de char %c\n", str, cha);
+	// int	a = ft_printf("en %c\n", cha);
+	// int	a = ft_printf("busco %s\n", str);
+	// int	a = ft_printf("portal %d piso %i puerta %u\n", d, i, u);
+	// int	a = ft_printf("portal %x\n", x);
+	int	a = ft_printf("portal %p\n", 0);
+	// int	a = ft_printf("busco %%\n");
+	printf("%d\n", a);
+	// ft_printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
+	// ft_printf("de hexadecimales %x %X\nde porcentaje %%", x, super_x);
+	// printf("\n");
+	// int	b = printf("hola busco a %s\nprueba de char %c\n", str, cha);
+	// int	b = printf("en %c\n", cha);
+	// int	b = printf("busco %s\n", str);
+	// int	b = printf("portal %d piso %i puerta %u\n", d, i, u);
+	// int	b = printf("portal %x\n", x);
+	int	b = printf("portal %p\n", 0);
+	// int	b = printf("busco %%\n");
+	printf("%d\n", b);
+	// printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
+	// printf("de hexadecimales %x %X\nde porcentaje %%", x, super_x);
+	// printf("\n");
 	return (0);
 }*/

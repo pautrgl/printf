@@ -6,32 +6,33 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 00:49:04 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/20 20:41:24 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/21 00:22:37 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd, int j)
+int	ft_putnbr_fd(int n, int fd, int j)
 {
 	if (n == -2147483648)
 	{
-		ft_putchar_fd('-', fd, j);
-		ft_putchar_fd('2', fd, j);
+		j = ft_putchar_fd('-', fd, j);
+		j = ft_putchar_fd('2', fd, j);
 		n = 147483648;
 	}
 	else if (n < 0)
 	{
-		ft_putchar_fd('-', fd, j);
+		j = ft_putchar_fd('-', fd, j);
 		n = n * -1;
 	}
 	if (n > 9)
 	{
-		ft_putnbr_fd(n / 10, fd, j);
-		ft_putnbr_fd(n % 10, fd, j);
+		j = ft_putnbr_fd(n / 10, fd, j);
+		j = ft_putnbr_fd(n % 10, fd, j);
 	}
 	else
-		ft_putchar_fd(n + '0', fd, j);
+		j = ft_putchar_fd(n + '0', fd, j);
+	return (j);
 }
 
 /*int	main(void)
