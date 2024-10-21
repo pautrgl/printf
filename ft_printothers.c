@@ -6,7 +6,7 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:04:34 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/21 19:22:09 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/21 22:44:38 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int	ft_print_p(void *p, int j)
 	unsigned long long	pointer;
 
 	pointer = (unsigned long long)p;
-	pointer = 9223372036854775807;
 	if (pointer == 0)
 	{
-		write(1, "(nil)", 5);
-		j += 5;
+		j += write(1, "(nil)", 5);
 		return (j);
 	}
 	j = ft_putstr_fd("0x", 1, j);
@@ -37,7 +35,7 @@ int	ft_print_u(unsigned int n, int j)
 	return (j);
 }
 
-int	ft_print_x(unsigned int n, int j)
+int	ft_print_x(unsigned long long n, int j)
 {
 	if (n >= 16)
 	{
@@ -75,10 +73,10 @@ int	ft_print_super_x(unsigned int n, int j)
 
 /*int	main(void)
 {
-	// void *p = NULL;
-	ft_print_p(9223372036854775807, 0);
+	// void *p = "ay";
+	ft_print_p(p, 0);
 	printf("\n");
-	printf("%p\n", 9223372036854775807);
+	printf("%p\n", p);
 	// ft_print_X(-2147483647);
 	// printf("\n");
 	// printf("%X\n", -2147483647);
