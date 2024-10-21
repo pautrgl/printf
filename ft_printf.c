@@ -6,7 +6,7 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:49:43 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/21 01:36:06 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:17:51 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ int	ft_printf(char const *data, ...)
 //	va_copy(args_copy, args);
 	// char	cha = 'h';
 	// char	*str = "lola";
-	void	*pointer = "ays";
+	// char	*s0 = NULL;
+	// void	*pointer = "ays";
+	// void	*pointer = NULL;
+	void	*pointer = 9223372036854775807;
 	// int		d = 10;
 	// int		i = 11;
 	// int		u = 15;
@@ -79,9 +82,10 @@ int	ft_printf(char const *data, ...)
 	// int	a = ft_printf("hola busco a %s\nprueba de char %c\n", str, cha);
 	// int	a = ft_printf("en %c\n", cha);
 	// int	a = ft_printf("busco %s\n", str);
+	// int	a = ft_printf("busco %s\n", s0);
 	// int	a = ft_printf("portal %d piso %i puerta %u\n", d, i, u);
 	// int	a = ft_printf("portal %x\n", x);
-	int	a = ft_printf("portal %p\n", 0);
+	int	a = ft_printf("portal %p\n", pointer);
 	// int	a = ft_printf("busco %%\n");
 	printf("%d\n", a);
 	// ft_printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
@@ -90,9 +94,10 @@ int	ft_printf(char const *data, ...)
 	// int	b = printf("hola busco a %s\nprueba de char %c\n", str, cha);
 	// int	b = printf("en %c\n", cha);
 	// int	b = printf("busco %s\n", str);
+	// int	b = printf("busco %s\n", s0);
 	// int	b = printf("portal %d piso %i puerta %u\n", d, i, u);
 	// int	b = printf("portal %x\n", x);
-	int	b = printf("portal %p\n", 0);
+	int	b = printf("portal %p\n", pointer);
 	// int	b = printf("busco %%\n");
 	printf("%d\n", b);
 	// printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
