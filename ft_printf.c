@@ -6,7 +6,7 @@
 /*   By: ptrapero <ptrapero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:49:43 by ptrapero          #+#    #+#             */
-/*   Updated: 2024/10/21 22:38:22 by ptrapero         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:56:54 by ptrapero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,6 @@ int	ft_printf(char const *data, ...)
 
 /*int	main(void)
 {
-	int	a = write(1, "cccc", 4);
-	printf("%d", a);
-	return (0);
-}*/
-
-/*int	main(void)
-{
 //	va_list	args_copy;
 //	va_copy(args_copy, args);
 	// char	cha = 'h';
@@ -103,5 +96,7 @@ int	ft_printf(char const *data, ...)
 	// printf("de puntero %p\nde números %d %i %u\n", pointer, d, i, u);
 	// printf("de hexadecimales %x %X\nde porcentaje %%", x, super_x);
 	// printf("\n");
+	int	a = write(1, "cccc", 4);
+	printf("%d", a);
 	return (0);
 }*/
